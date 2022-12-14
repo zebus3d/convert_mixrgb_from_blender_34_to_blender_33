@@ -12,7 +12,7 @@ def process_nodes(root_nodes):
         nodes = root_nodes.nodes
         #
         for node in nodes:
-            if node.type == 'FRAME':
+            if node.type == 'FRAME' or node.type == 'REROUTE':
                 continue
             #
             if node.type == 'GROUP':
