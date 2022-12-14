@@ -18,7 +18,7 @@ for obj in bpy.data.objects:
             for node in nodes:
                 if node.type == '':
                     #
-                    print('Node name:', node.name)
+                    #print('Node name:', node.name)
                     new_node = nodes.new('ShaderNodeMixRGB')
                     new_node.location = node.location.copy()
                     #new_node.dimensions = node.dimensions (read only)
@@ -59,15 +59,15 @@ for obj in bpy.data.objects:
                     for i in range(len(node.outputs)):
                         outputx = node.outputs[i]
                         if len(outputx.links) > 0:
-                            print(i, outputx.name)
+                            #print(i, outputx.name)
                             new_factor_output = None
                             if i == 2 and outputx.name == 'Result':
                                 new_factor_output = 'Color'
                             #
                             right_node = outputx.links[0].to_node
                             right_node_input = outputx.links[0].to_socket
-                            print("right_node:", right_node.name)
-                            print("right_node_input:", right_node_input)
+                            #print("right_node:", right_node.name)
+                            #print("right_node_input:", right_node_input)
                             if new_factor_output:
                                 print("new_factor_output", new_factor_output)
                                 main_node.node_tree.links.new(new_node.outputs[new_factor_output], right_node_input)
