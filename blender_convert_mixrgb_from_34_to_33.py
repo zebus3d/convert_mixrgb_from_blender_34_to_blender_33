@@ -23,7 +23,7 @@ for obj in bpy.data.objects:
                     new_node.location = node.location.copy()
                     #new_node.dimensions = node.dimensions (read only)
                     #
-                    # conectando las entradas a los nodos nuevos:
+                    # connecting the inputs to the new nodes:
                     for i in range(len(node.inputs)):
                         inputx = node.inputs[i]
                         new_factor_input = None
@@ -55,7 +55,7 @@ for obj in bpy.data.objects:
                                 main_node.node_tree.links.new(new_node.inputs[new_color1_input], left_output)
                             if new_color2_input:
                                 main_node.node_tree.links.new(new_node.inputs[new_color2_input], left_output)
-                    # conectando las salidas a los nodos nuevos:
+                    # connecting outputs to the new nodes:
                     for i in range(len(node.outputs)):
                         outputx = node.outputs[i]
                         if len(outputx.links) > 0:
