@@ -29,7 +29,7 @@ for obj in bpy.data.objects:
                         new_factor_input = None
                         new_color1_input = None
                         new_color2_input = None
-                        # blender 3.3 cant read el blend_type from 3.4 :(
+                        # blender 3.3 cant read the blend_type from 3.4 :(
                         # new_node.blend_type = node.blend_type
                         if i == 0 and inputx.name == 'Factor':
                             new_factor_input = 'Fac'
