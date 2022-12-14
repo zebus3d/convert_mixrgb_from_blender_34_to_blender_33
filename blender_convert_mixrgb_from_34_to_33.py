@@ -1,17 +1,17 @@
 import bpy
 
-# este script es para convertir los MixRGB de Blender 3.4 a los de Blender 3.3 ya que son incompatibles.
-# tienes que ejecutar este script en Blender 3.3
+# This script is for convert MixRGB nodes from Blender 3.4 to MixRGB nodes to Blender 3.3, because 3.4 are incompatibles in 3.3.
+# Run this script in Blender 3.3
 
 for obj in bpy.data.objects:
-    if obj.type != 'MESH' and 'Domain' not in obj:
+    if obj.type != 'MESH':
         continue
     #    
     for mslot in obj.material_slots: 
         material = mslot.material
         #   
         for main_node in material.node_tree.nodes:
-            if main_node.type != 'GROUP':
+            if main_node.type != 'GROUP': # in my case are in groups in the main
                 continue
             nodes = main_node.node_tree.nodes
             #
@@ -29,7 +29,7 @@ for obj in bpy.data.objects:
                         new_factor_input = None
                         new_color1_input = None
                         new_color2_input = None
-                        # blender 3.3 es incapaz de leer el blend_type de 3.4 :(
+                        # blender 3.3 cant read el blend_type from 3.4 :(
                         # new_node.blend_type = node.blend_type
                         if i == 0 and inputx.name == 'Factor':
                             new_factor_input = 'Fac'
